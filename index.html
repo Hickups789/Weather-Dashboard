@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Enter your description here" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./script.css">
+
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <!-- Page margins are created using the container and container-fluid classes -->
+  <header class="container-fluid bg-dark text-light mb-5 p-3">
+    <div class="d-flex align-items-center">
+      
+      <h3 class="ml-auto">
+        Weather Dashboard
+      </h3>
+    </div>
+  </header>
+  <div class="row justify-content-center">
+  <div class="col-4 col-md-4 col-xl-3">
+    <h2 class="h3 text-dark">Search For City</h2>
+    <form><input type="text" placeholder="San Diego" class="form-control">
+    <button class="btn mt-2 btn-primary">
+      search
+    </button>
+  </form>
+  <hr>
+  <div id="search"></div>
+</div>
+  <div class="col-8 border border-1 mb-2 p-2" id="data">
+    <h5 class="h4 city">
+    </h5>
+    <div class="d-flex">
+      <p>Wind: </p><span class="wind"></span>
+    </div>
+    <div class="d-flex">
+      <p>Temperature: </p><span class="temp"></span>
+    </div>
+    <div class="d-flex">
+      <p>Pressure: </p><span class="pres"></span>
+    </div>
+    <div class="d-flex">
+      <p>humidity: </p><span class="hum"></span>
+    </div>
+    <div class="d-flex">
+      <p>UVI index: </p><span class="uv btn btn-success text-light">0</span>
+    </div>
+    
+  </div>
+</div>
+ <section class="container my-5">
+    <div class="row justify-content">
+      <div class="col-12 col-sm-8 col-lg-6">
+        <p></p>
+        </div>
+       <div id="dt" class="d-flex flex-row"></div>
+      </div>
+    </div>
+  </section>
+  <script src="./script.js"></script>
+</body>
+
+</html>
 
