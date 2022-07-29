@@ -1,17 +1,20 @@
-
-
 let climate = (el) => document.querySelector(el);
 console.log(climate)
 let dataContainer = climate("#data");
 let date = new Date();
 
-climate("form").addEventListener("submit", (e) => {
-  e.preventDefault();
+const performSearch = (event) => {
+  event.preventDefault()
   let search = climate("input").value;
   getLa(search)
   renderSearched(search);
-  e.target.reset();
-})
+  event.target.reset();
+}
+
+climate("form").addEventListener("submit", performSearch)
+
+
+
 
 const renderSearched = (val) => {
   let searched = document.createElement("button");
@@ -31,10 +34,9 @@ const showDays = (days => {
   for (let i = 1; i < 6; i++) {
     let box = document.createElement("div");
     let weatherImage = "☁️";
-    if(days[i].weather === "Windy") weatherImage = "💨"
-    else if(days[i].weather.main === "Rainy") weatherImage = "🌧"
-    else if(days[i].weather.main === "Sunny") weatherImage = "🌞"
-
+    if( days[i].weather[0].main == "Clouds") {weatherImage = "💨"}
+    if (days[i].weather[0].main == "Rain"){ weatherImage = "🌧"}
+    else {weatherImage = "🌞"}
 
     box.innerHTML =`
     <h3>${date.getDate()+ i}/${date.getMonth() + 1}/${date.getFullYear()}</h3>
@@ -78,5 +80,5 @@ const getInfo = (la, lo, city) => {
 
 const getLa = (val) => {
 
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${val}&appid=433260490f83c0e7f8e514976acdef4d`).then(response => response.json()).then(a => getInfo(a[0].lat, a[0].lon,val))
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${val}&appid=433260490f83c0e7f8e514976acdef4d`).then(response => response.json()).then(a => getInfo(a[0].lat, a[0].lon,val))
 }
